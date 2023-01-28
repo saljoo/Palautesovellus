@@ -9,6 +9,7 @@ const Button = (props) =>
 
 //Component to show statistics
 const Statistics = (props) => {
+  //Return this if there isn't any feedback given
   if(props.all===0) {
     return (
       <div>
@@ -19,19 +20,31 @@ const Statistics = (props) => {
       </div>
     )
   }
-
+  //Return statistics
   return (
     <div>
       <h2>statistics</h2>
       <div>
-        good {props.good}<br />
-        neutral {props.neutral}<br />
-        bad {props.bad}<br />
-        all {props.all}<br />
-        average {props.average}<br />
-        positive {props.positive} %
+        <StatisticLine text="good" value={props.good} />
+        <StatisticLine text="neutral" value={props.neutral} />
+        <StatisticLine text="bad" value={props.bad} />
+        <StatisticLine text="all" value={props.all} />
+        <StatisticLine text="average" value={props.average} />
+        <StatisticLine text="positive" value={props.positive} />
       </div>
     </div>
+  )
+}
+
+//Component to show one statistic line
+const StatisticLine = (props) => {
+  if(props.text==="positive") {
+    return (
+      <div>{props.text} {props.value} %</div>
+    )
+  }
+  return (
+    <div>{props.text} {props.value}</div>
   )
 }
 
