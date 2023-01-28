@@ -9,6 +9,17 @@ const Button = (props) =>
 
 //Component to show statistics
 const Statistics = (props) => {
+  if(props.all===0) {
+    return (
+      <div>
+        <h2>statistics</h2>
+        <div>
+          No feedback given
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div>
       <h2>statistics</h2>
